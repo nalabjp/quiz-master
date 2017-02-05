@@ -20,7 +20,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'humanize'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-power_assert'
 end
 
 group :development do
