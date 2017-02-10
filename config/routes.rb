@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root controller: :questions, action: :index
-  resources :questions do
+  resources :questions, except: :index do
     member do
       patch :answer
     end
