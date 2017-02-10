@@ -7,4 +7,11 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    = yield
+    header
+      nav
+        .nav-wrapper
+          a.brand-logo.center href='#'
+            | Quiz Master
+    main
+    .container
+      = yield
