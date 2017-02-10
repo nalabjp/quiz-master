@@ -31,6 +31,10 @@ module QuizMaster
         controller_specs: false
       g.fixture_replacement :factory_girl,
         dir: "spec/factories"
+      g.scaffold_stylesheet false
+      g.helper false
+      g.assets false
+      g.jbuilder false
     end
   end
 end
