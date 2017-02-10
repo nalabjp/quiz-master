@@ -1,1 +1,4 @@
+@import "materialize/components/color";
+$primary-color: color("indigo", "darken-2") !default;
+$secondary-color: color("teel", "accent-2") !default;
 @import "materialize";
