@@ -12,4 +12,5 @@
   = label_tag 'Answer'
   ' :
   = f.text_field :answer
-  .actions = f.submit
+  .actions
+    = f.submit 'Submit', class: 'btn'
