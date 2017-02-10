@@ -1,5 +1,11 @@
 p#notice = notice
 
+' Question:
+= @question.content
+br
+' Answer:
+= @question.answer
+br
 
 = link_to 'Edit', edit_question_path(@question)
 '|

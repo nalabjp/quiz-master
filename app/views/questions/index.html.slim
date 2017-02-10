@@ -3,6 +3,7 @@ h1 Listing questions
 table
   thead
     tr
+      th Question
       th
       th
       th
@@ -10,6 +11,7 @@ table
   tbody
     - @questions.each do |question|
       tr
+        td = question.content
         td = link_to 'Show', question
         td = link_to 'Edit', edit_question_path(question)
         td = link_to 'Destroy', question, data: { confirm: 'Are you sure?' }, method: :delete
