@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :answer]
 
   # GET /questions
   # GET /questions.json
@@ -61,6 +61,15 @@ class QuestionsController < ApplicationController
     end
   end
 
+  # PATCH /questions/1/answer
+  def answer
+    if @question.correct_answer?(answer_params[:answer])
+      redirect_to :root, notice: 'Good'
+    else
+      render action: :show, notice: 'Bad'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
@@ -70,5 +79,9 @@ class QuestionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
       params.require(:question).permit(:content, :answer)
+    end
+
+    def answer_params
+      params.permit(:answer)
     end
 end

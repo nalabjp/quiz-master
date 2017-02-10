@@ -3,8 +3,12 @@ p#notice = notice
 ' Question:
 = @question.content
 br
-' Answer:
-= @question.answer
+= form_for @question, url: { action: :answer } do |f|
+  ' Your Answer:
+  = text_field_tag :answer
+  br
+  = f.submit 'Submit'
+
 br
 
 = link_to 'Edit', edit_question_path(@question)
