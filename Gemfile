@@ -17,6 +17,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
+gem 'materialize-sass'
 
 gem 'humanize'
 
