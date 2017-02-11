@@ -2,3 +2,23 @@
 $primary-color: color("indigo", "darken-2") !default;
 $secondary-color: color("teel", "accent-2") !default;
 @import "materialize";
+
+.inline {
+  display: inline-block;
+}
+
+.padding-top-2ex {
+  padding-top: 2ex;
+}
+
+.margin-top-2ex {
+  margin-top: 2ex;
+}
+
+.margin-top-5ex {
+  margin-top: 5ex;
+}
+
+.margin-left-1em {
+  margin-left: 1em;
+}

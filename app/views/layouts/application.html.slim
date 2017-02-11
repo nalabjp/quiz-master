@@ -5,13 +5,17 @@ html
       | QuizMaster
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
+    = stylesheet_link_tag    'https://fonts.googleapis.com/icon?family=Material+Icons', media: 'all'
     = javascript_include_tag 'application'
   body
     header
       nav
         .nav-wrapper
-          a.brand-logo.center href='#'
+          a.brand-logo.center href='/'
             | Quiz Master
     main
-    .container
+    .container.padding-top-2ex
+      - flash.each do |_type, message|
+        = javascript_tag "Materialize.toast('#{message}', 4000)"
+      - flash.clear
       = yield

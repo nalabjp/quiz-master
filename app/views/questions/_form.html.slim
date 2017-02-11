@@ -5,12 +5,15 @@
       ul
         - @question.errors.full_messages.each do |message|
           li = message
-  = label_tag 'Question'
-  ' :
-  = f.text_field :content
-  br
-  = label_tag 'Answer'
-  ' :
-  = f.text_field :answer
-  .actions
-    = f.submit 'Submit', class: 'btn'
+  .input-field
+    = f.text_field :content, class: 'validate'
+    = f.label :content, 'Question'
+  .input-field
+    = f.text_field :answer, class: 'validate'
+    = f.label :answer
+  .row
+    .col.s6.input-field
+      .right
+        = f.submit 'Submit', class: 'btn z-depth-3'
+    .col.s6.input-field
+      = link_to 'Back', root_path, class: 'btn z-depth-3'
