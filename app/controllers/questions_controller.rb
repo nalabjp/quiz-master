@@ -26,28 +26,20 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
-      else
-        format.html { render :new }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+    if @question.save
+      redirect_to root_url, notice: 'Question was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
-    respond_to do |format|
-      if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-        format.json { render :show, status: :ok, location: @question }
-      else
-        format.html { render :edit }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+    if @question.update(question_params)
+      redirect_to root_url, notice: 'Question was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -55,18 +47,16 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1.json
   def destroy
     @question.destroy
-    respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to root_url, notice: 'Question was successfully destroyed.'
   end
 
   # PATCH /questions/1/answer
   def answer
     if @question.correct_answer?(answer_params[:answer])
-      redirect_to :root, notice: 'Good'
+      redirect_to root_url, notice: 'Congrats ! Your answer is correct !'
     else
-      render action: :show, notice: 'Bad'
+      flash[:notice] = 'Oooops, incorrect .'
+      render action: :show
     end
   end
 
@@ -82,6 +72,6 @@ class QuestionsController < ApplicationController
     end
 
     def answer_params
-      params.permit(:answer)
+      params.require(:question).permit(:answer)
     end
 end
