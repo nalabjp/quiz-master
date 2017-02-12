@@ -16,7 +16,7 @@ var QuizForm = React.createClass({
 
     var answer = this.refs.question_answer.value.trim();
     if (!answer) {
-      Materialize.toast('Please input your answer!', 4000);
+      Materialize.toast('Please input your answer!', 4000, 'pink');
       this.setState(this.getInitialState());
       return;
     }
@@ -27,10 +27,12 @@ var QuizForm = React.createClass({
       type: 'PATCH',
       data: { 'question': { 'answer': answer } },
       success: function(data) {
-        Materialize.toast(data.message, 4000);
+        var color = 'blue'
         if (data.result != 'correct') {
+          color = 'orange'
           this.setState(this.getInitialState());
         }
+        Materialize.toast(data.message, 4000, color);
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());

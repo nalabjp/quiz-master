@@ -15,7 +15,8 @@ html
             | Quiz Master
     main
     .container.padding-top-2ex
-      - flash.each do |_type, message|
-        = javascript_tag "Materialize.toast('#{message}', 4000)"
+      - flash.each do |type, message|
+        - color = (type == 'error') ? 'red' : 'blue'
+        = javascript_tag "Materialize.toast('#{message}', 4000, '#{color}')"
       - flash.clear
       = yield
