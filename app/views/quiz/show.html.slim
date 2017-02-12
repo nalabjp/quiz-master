@@ -1,14 +1,3 @@
 h5 Question
 
-h4
-  = @question.content
-= form_for @question, url: { controller: :quiz, action: :answer } do |f|
-  .input-field
-    = f.text_field :answer, value: '', class: 'validate'
-    = f.label :answer
-  .row
-    .col.s6.input-field
-      .right
-        = f.submit 'Submit', class: 'btn z-depth-3'
-    .col.s6.input-field
-      = link_to 'Back', root_path, class: 'btn z-depth-3'
+= react_component('QuizForm', @react_data)
