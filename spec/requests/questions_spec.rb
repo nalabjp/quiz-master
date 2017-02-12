@@ -11,7 +11,7 @@ RSpec.describe 'Questions', type: :request do
       get '/questions/new'
       expect(response).to render_template(:new)
 
-      post '/questions', question: { content: 'qestion!', answer: 'answer!' }
+      post '/questions', params: { question: { content: 'qestion!', answer: 'answer!' } }
       expect(response).to redirect_to(root_url)
       follow_redirect!
 
@@ -24,7 +24,7 @@ RSpec.describe 'Questions', type: :request do
       get '/questions/new'
       expect(response).to render_template(:new)
 
-      post '/questions', question: { content: '', answer: '' }
+      post '/questions', params: { question: { content: '', answer: '' } }
       expect(response).to render_template(:new)
     end
   end
@@ -34,7 +34,7 @@ RSpec.describe 'Questions', type: :request do
       get "/questions/#{@id}/edit"
       expect(response).to render_template(:edit)
 
-      patch "/questions/#{@id}", question: { content: 'u_q1', answer: 'u_a1' }
+      patch "/questions/#{@id}", params: { question: { content: 'u_q1', answer: 'u_a1' } }
       expect(response).to redirect_to(root_url)
       follow_redirect!
 
@@ -47,7 +47,7 @@ RSpec.describe 'Questions', type: :request do
       get "/questions/#{@id}/edit"
       expect(response).to render_template(:edit)
 
-      patch "/questions/#{@id}", question: { content: '', answer: '' }
+      patch "/questions/#{@id}", params: { question: { content: '', answer: '' } }
       expect(response).to render_template(:edit)
     end
   end

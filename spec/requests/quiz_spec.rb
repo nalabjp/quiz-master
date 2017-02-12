@@ -11,7 +11,7 @@ RSpec.describe 'Quiz', type: :request do
       get "/quiz/#{@id}"
       expect(response).to render_template(:show)
 
-      patch "/quiz/#{@id}/answer", question: { answer: 'a1' }
+      patch "/quiz/#{@id}/answer", params: { question: { answer: 'a1' } }
       expect(response).to redirect_to(root_url)
       follow_redirect!
 
@@ -24,7 +24,7 @@ RSpec.describe 'Quiz', type: :request do
       get "/quiz/#{@id}"
       expect(response).to render_template(:show)
 
-      patch "/quiz/#{@id}/answer", question: { answer: 'a2' }
+      patch "/quiz/#{@id}/answer", params: { question: { answer: 'a2' } }
       expect(response).to render_template(:show)
     end
   end
