@@ -1,24 +1,63 @@
-# README
+# Quiz Master
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Quiz Master is Quipper's technical exam for web developers.
 
-Things you may want to cover:
+# System requirements
 
-* Ruby version
+* Ruby
 
-* System dependencies
+* Bundler
 
-* Configuration
+* SQLite3
 
-* Database creation
+## My Environment
 
-* Database initialization
+* MacOS 10.12.3
 
-* How to run the test suite
+* Ruby 2.3.3p222
 
-* Services (job queues, cache servers, search engines, etc.)
+* SQLite3 3.14.0
 
-* Deployment instructions
+# Technical summary
 
-* ...
+* Web Application Framework
+    * Rails
+
+* Template Engine
+    * Slim
+
+* CSS Framework
+    * Materialize
+
+* Frontend library
+    * React.js
+
+# Setup
+
+Bundle:
+
+```
+$ bundle install --path=vendor/bundle
+```
+
+Basic setup:
+
+```
+$ bin/setup
+```
+
+If you want to import some example questions, you can use the script.
+
+```
+$ bundle exec rails r script/import_example_questions.rb
+```
+
+Launch application:
+
+```
+$ RAILS_ENV=production bundle exec rails s
+```
+
+# TODO
+
+* Frontend Testing 😰
