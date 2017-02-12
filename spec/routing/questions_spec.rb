@@ -10,16 +10,6 @@ RSpec.describe 'Routes to questions controller', :type => :routing do
     end
   end
 
-  describe "PATCH '/questions/1/answer'" do
-    it do
-      expect(patch: '/questions/1/answer').to route_to(
-        controller: 'questions',
-        action: 'answer',
-        id: '1'
-      )
-    end
-  end
-
   describe "POST '/questions'" do
     it do
       expect(post: '/questions').to route_to(
@@ -43,16 +33,6 @@ RSpec.describe 'Routes to questions controller', :type => :routing do
       expect(get: '/questions/1/edit').to route_to(
         controller: 'questions',
         action: 'edit',
-        id: '1'
-      )
-    end
-  end
-
-  describe "GET '/questions/1'" do
-    it do
-      expect(get: '/questions/1').to route_to(
-        controller: 'questions',
-        action: 'show',
         id: '1'
       )
     end

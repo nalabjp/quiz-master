@@ -64,27 +64,4 @@ RSpec.describe 'Questions', type: :request do
       expect(response).to render_template(:index)
     end
   end
-
-  context 'Answer the question and correct' do
-    it do
-      get "/questions/#{@id}"
-      expect(response).to render_template(:show)
-
-      patch "/questions/#{@id}", question: { answer: 'a1' }
-      expect(response).to redirect_to(root_url)
-      follow_redirect!
-
-      expect(response).to render_template(:index)
-    end
-  end
-
-  context 'Answer the question, but incorrect' do
-    it do
-      get "/questions/#{@id}"
-      expect(response).to render_template(:show)
-
-      patch "/questions/#{@id}/answer", question: { answer: 'a2' }
-      expect(response).to render_template(:show)
-    end
-  end
 end

@@ -2,7 +2,7 @@ h5 Question
 
 h4
   = @question.content
-= form_for @question, url: { action: :answer } do |f|
+= form_for @question, url: { controller: :quiz, action: :answer } do |f|
   .input-field
     = f.text_field :answer, value: '', class: 'validate'
     = f.label :answer

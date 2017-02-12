@@ -3,7 +3,7 @@ h5 Which question do you challenge?
 ul.collection.margin-top-5ex
   - @questions.each do |q|
     li.collection-item
-      = link_to q.content, q
+      = link_to q.content, quiz_path(q)
       .right
         .inline
           = link_to edit_question_path(q)
